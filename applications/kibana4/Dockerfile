@@ -1,4 +1,4 @@
-FROM pteich:ubuntu
+FROM pteich/ubuntu:latest
 MAINTAINER Peter Teich <peter.teich@gmail.com>
 
 ENV KIBANA_VERSION 4.1.0
