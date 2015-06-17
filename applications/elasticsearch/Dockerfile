@@ -18,6 +18,8 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 ENV ES_HOME=/usr/share/elasticsearch
 ENV MAX_OPEN_FILES=65535
 
+ADD config /config
+
 RUN ulimit -n $MAX_OPEN_FILES
 
 # Expose ports
@@ -29,4 +31,4 @@ EXPOSE 9300
 # mountable directory
 VOLUME ["/data"]
 
-CMD ["$ES_HOME/bin/elasticsearch --default.config=/etc/elasticsearch/elasticsearch.yml  --default.path.home=$ES_HOME"]
+CMD ["$ES_HOME/bin/elasticsearch --default.config=/config/elasticsearch.yml  --default.path.home=$ES_HOME"]
