@@ -31,4 +31,6 @@ EXPOSE 9300
 # mountable directory
 VOLUME ["/data"]
 
-CMD ["$ES_HOME/bin/elasticsearch --default.config=/config/elasticsearch.yml  --default.path.home=$ES_HOME"]
+ENTRYPOINT ["/usr/share/elasticsearch/bin/elasticsearch", "--default.config=/config/elasticsearch.yml", "--default.path.home=/usr/share/elasticsearch"]
+
+CMD [""]
