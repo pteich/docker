@@ -9,5 +9,6 @@ RUN curl -s https://download.elastic.co/kibana/kibana/kibana-4.1.0-linux-x64.tar
 RUN mv /tmp/kibana-* /opt/kibana
 
 ADD config /config
+ADD etc /etc
 
 EXPOSE 5601
