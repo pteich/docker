@@ -20,6 +20,12 @@ ENV MAX_OPEN_FILES=65535
 
 RUN ulimit -n $MAX_OPEN_FILES
 
+# Expose ports
+#   - 9200: HTTP
+#   - 9300: transport
+EXPOSE 9200
+EXPOSE 9300
+
 # mountable directory
 VOLUME ["/data"]
 
