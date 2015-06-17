@@ -1,0 +1,10 @@
+path.conf: /etc/elasticsearch
+path.data: /data/data
+path.logs: /data/log
+path.plugins: /data/plugins
+path.work: /data/work
+
+http.jsonp.enable: false
+discovery.zen.ping.multicast.enabled: false
+script.disable_dynamic: true
+http.cors.enabled: false
