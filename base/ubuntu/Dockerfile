@@ -4,6 +4,7 @@ ADD etc /etc
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
 	apt-get upgrade -y && \
+	apt-get install -y software-properties-common htop unzip && \
 	apt-get install -y ca-certificates inotify-tools nano pwgen supervisor wget curl mc git && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/* && \
