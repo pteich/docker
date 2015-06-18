@@ -6,5 +6,4 @@ path.work: /data/work
 
 http.jsonp.enable: false
 discovery.zen.ping.multicast.enabled: false
-script.disable_dynamic: true
 http.cors.enabled: false
