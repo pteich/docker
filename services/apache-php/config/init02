@@ -1,0 +1,2 @@
+mkdir -p /data/http /data/logs
+chown -R www-data:www-data /data
