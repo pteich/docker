@@ -19,7 +19,7 @@ RUN apt-get update && \
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf && \
 	a2enmod rewrite setenvif ssl  && \
 	sed -i "s/AllowOverride None/AllowOverride All/g" /etc/apache2/apache2.conf && \
-	sed -i "s/IncludeOptional sites-enabled/IncludeOptional \/config\/sites-enabled" && \
+	sed -i "s/IncludeOptional sites-enabled/IncludeOptional \/config\/sites-enabled/g" && \
     sed -i "s/variables_order.*/variables_order = \"EGPCS\"/g" /etc/php5/apache2/php.ini
 
 # mountable directory
