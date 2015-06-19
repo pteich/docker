@@ -5,7 +5,7 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get -yq install \
         apache2 \
         libapache2-mod-php5 \
-        php5-mysql php5-mysqlnd \        
+        php5-mysqlnd \        
 		php5-mcrypt \
         php5-gd \
         php5-curl \
