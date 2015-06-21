@@ -1,2 +1,2 @@
-mkdir -p /data/http /data/logs
+mkdir -p /data/logs
 chown -R www-data:www-data /data

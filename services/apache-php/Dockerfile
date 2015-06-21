@@ -17,16 +17,13 @@ RUN apt-get update && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf && \
+	echo "IncludeOptional /config/*.conf" >> /etc/apache2/apache2.conf && \
 	a2enmod rewrite setenvif ssl  && \
+	sed -i "s/export APACHE_LOG_DIR=\/var\/log\/apache2\$SUFFIX/export APACHE_LOG_DIR=\/data\/logs/g" /etc/apache2/envvars && \
 	sed -i "s/AllowOverride None/AllowOverride All/g" /etc/apache2/apache2.conf && \
-	sed -i "s/IncludeOptional sites-enabled/IncludeOptional \/config\/sites-enabled/g" /etc/apache2/apache2.conf && \
     sed -i "s/variables_order.*/variables_order = \"EGPCS\"/g" /etc/php5/apache2/php.ini
 
 # mountable directory
 VOLUME ["/data","/config"]
 
 EXPOSE 80 443
-
-ENV APACHE_LOG_DIR=/data/logs    
-
-
