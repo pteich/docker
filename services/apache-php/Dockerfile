@@ -26,4 +26,7 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf && \
 # mountable directory
 VOLUME ["/data","/config"]
 
+RUN chmod +x /config/config.sh && \
+	/config/config.sh
+
 EXPOSE 80 443
