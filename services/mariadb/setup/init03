@@ -1,4 +1,5 @@
 MARIADB_PASS=${MARIADB_PASS:-"$(pwgen -B -s 24 1)"}
+
 chown -R mysql:mysql /data
 if [ ! "$(ls -A /data)" ]; then
 	mysql_install_db --datadir=/data --user=mysql
@@ -13,4 +14,5 @@ if [ ! "$(ls -A /data)" ]; then
 	mysqladmin -u root shutdown
 	echo "MariaDB Username: $MARIADB_USER"
 	echo "MariaDB Password: $MARIADB_PASS"
+	echo "MariaDB user 'root' has no password but only allows local connections"
 fi
