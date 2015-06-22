@@ -13,8 +13,7 @@ RUN sed -i -e "s/^bind-address/#bind-address/" /etc/mysql/my.cnf && \
 ADD etc /etc
 ADD setup /setup
 
-ENV MARIADB_DB NONE
-ENV MARIADB_USER docker
+ENV MARIADB_DB=NONE MARIADB_USER=docker
 
 # mountable directory
 VOLUME ["/data"]
@@ -22,4 +21,3 @@ VOLUME ["/data"]
 RUN chmod +x /setup/setup.sh && \
 	/setup/setup.sh
 
-	
