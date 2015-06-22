@@ -14,9 +14,7 @@ RUN \
   rm -rf /var/lib/apt/lists/* && \
   rm -rf /var/cache/oracle-jdk8-installer
 
-ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
-ENV ES_HOME=/usr/share/elasticsearch
-ENV MAX_OPEN_FILES=65535
+ENV JAVA_HOME=/usr/lib/jvm/java-8-oracle ES_HOME=/usr/share/elasticsearch MAX_OPEN_FILES=65535
 
 ADD config /config
 
@@ -29,7 +27,7 @@ EXPOSE 9200
 EXPOSE 9300
 
 # mountable directory
-VOLUME ["/data"]
+VOLUME ["/config","/data"]
 
 ENTRYPOINT ["/usr/share/elasticsearch/bin/elasticsearch", "--default.config=/config/elasticsearch.yml", "--default.path.home=/usr/share/elasticsearch"]
 
