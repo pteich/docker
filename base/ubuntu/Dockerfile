@@ -14,14 +14,14 @@ RUN apt-get update && \
 
 # setup contains all setup scripts, all child images can use this as well
 # /data will be our main data storage place
-RUN mkdir /setup /data && /
+RUN mkdir /setup /data && \
 	useradd -u 500 core
 
 # mount local setup directory
 ADD setup /setup
 
 # start setup.sh
-RUN chmod +x /setup/setup.sh && /
+RUN chmod +x /setup/setup.sh && \
 	/setup/setup.sh
 
 # default entrypoint
