@@ -13,6 +13,7 @@ RUN sed -i -e "s/^bind-address/#bind-address/" /etc/mysql/my.cnf && \
 
 ADD etc /etc
 ADD setup /setup
+ADD run.sh /run.sh
 
 ENV MARIADB_DB=NONE MARIADB_USER=docker TERM=dumb
 
