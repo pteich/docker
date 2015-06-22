@@ -1,6 +1,6 @@
 mkdir -p /data/logs
 chown -R mysql:mysql /data
-if [ ! "$(ls -A /data)" ]; then
+if [[ ! -d /data/mysql ]]; then
 	echo "=> Detected an uninitialized MariaDB data volume"
 	echo "=> Setup MariaDB ..."
 	MARIADB_PASS=${MARIADB_PASS:-"$(pwgen -B -s 24 1)"}
