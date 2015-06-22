@@ -21,6 +21,4 @@ EXPOSE 3306
 # mountable directory
 VOLUME ["/data"]
 
-RUN chmod +x /setup/setup.sh && \
-	/setup/setup.sh
-
+RUN chmod +x /setup/setup.sh

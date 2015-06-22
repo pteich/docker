@@ -1,7 +1,8 @@
-MARIADB_PASS=${MARIADB_PASS:-"$(pwgen -B -s 24 1)"}
-
 chown -R mysql:mysql /data
 if [ ! "$(ls -A /data)" ]; then
+	echo "=> Detected an uninitialized MariaDB data volume"
+	echo "=> Setup MariaDB ..."
+	MARIADB_PASS=${MARIADB_PASS:-"$(pwgen -B -s 24 1)"}
 	mysql_install_db --datadir=/data --user=mysql
 	mysqld_safe --skip-grant-tables &
 	while [ ! -e /run/mysqld/mysqld.sock ]; do
@@ -12,7 +13,9 @@ if [ ! "$(ls -A /data)" ]; then
 		mysql -u root -e "CREATE DATABASE $MARIADB_DB;"
 	fi
 	mysqladmin -u root shutdown
-	echo "MariaDB Username: $MARIADB_USER"
-	echo "MariaDB Password: $MARIADB_PASS"
-	echo "MariaDB user 'root' has no password but only allows local connections"
+	echo "=> MariaDB Username: $MARIADB_USER"
+	echo "=> MariaDB Password: $MARIADB_PASS"
+	echo "=> MariaDB user 'root' has no password but only allows local connections"
+else
+    echo "=> Using an existing MariaDB data volume"	
 fi
