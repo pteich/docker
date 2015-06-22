@@ -1,7 +1,7 @@
 FROM ubuntu:14.04
 MAINTAINER Peter Teich <peter.teich@gmail.com>
 ADD etc /etc
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 # install some tools for all containers based on this one
 RUN apt-get update && \
