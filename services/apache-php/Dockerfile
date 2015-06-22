@@ -29,7 +29,7 @@ ADD setup /setup
 # mountable directory
 VOLUME ["/data","/config"]
 
-RUN chmod +x /config/config.sh && \
-	/config/config.sh
+RUN chmod +x /setup/setup.sh && \
+	/setup/setup.sh
 
 EXPOSE 80 443
