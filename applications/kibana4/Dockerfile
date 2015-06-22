@@ -8,10 +8,10 @@ RUN curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -  && \
 RUN curl -s https://download.elastic.co/kibana/kibana/kibana-4.1.0-linux-x64.tar.gz | tar xz -C /tmp && \
 	mv /tmp/kibana-* /opt/kibana
 
-ADD config /config
+ADD setup /setup
 ADD etc /etc
 
-RUN chmod +x /config/config.sh
-RUN /config/config.sh
+RUN chmod +x /setup/setup.sh
+RUN /setup/setup.sh
 
 EXPOSE 5601
