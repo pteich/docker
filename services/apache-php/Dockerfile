@@ -19,9 +19,12 @@ RUN apt-get update && \
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf && \
 	echo "IncludeOptional /config/*.conf" >> /etc/apache2/apache2.conf && \
 	a2enmod rewrite setenvif ssl  && \
+    echo "SetEnv PHP_INI_SCAN_DIR /config/" >> /etc/apache2/mods-available/php.conf && \
 	sed -i "s/export APACHE_LOG_DIR=\/var\/log\/apache2\$SUFFIX/export APACHE_LOG_DIR=\/data\/logs/g" /etc/apache2/envvars && \
 	sed -i "s/AllowOverride None/AllowOverride All/g" /etc/apache2/apache2.conf && \
     sed -i "s/variables_order.*/variables_order = \"EGPCS\"/g" /etc/php5/apache2/php.ini
+
+ADD setup /setup
 
 # mountable directory
 VOLUME ["/data","/config"]
