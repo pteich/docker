@@ -22,3 +22,7 @@ EXPOSE 3306
 VOLUME ["/data"]
 
 RUN chmod +x /setup/setup.sh
+
+ENTRYPOINT ["/run.sh"]
+
+CMD [""]

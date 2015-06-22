@@ -1,3 +1,4 @@
+mkdir -p /data/logs
 chown -R mysql:mysql /data
 if [ ! "$(ls -A /data)" ]; then
 	echo "=> Detected an uninitialized MariaDB data volume"
