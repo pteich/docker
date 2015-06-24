@@ -1,2 +1,17 @@
-mkdir -p /data/logs
+if [[ ! -d /data/logs ]]; then
+	echo "=> Detected missing logs directory"
+	echo "=> Creating ..."
+	mkdir -p /data/logs
+else
+    echo "=> Using existing logs directory /data/logs"	
+fi
+
+if [[ ! -d /data/http ]]; then
+	echo "=> Detected missing http directory"
+	echo "=> Creating ..."
+	mkdir -p /data/http
+else
+    echo "=> Using existing vhosts directory /data/http"	
+fi
+
 chown -R www-data:www-data /data

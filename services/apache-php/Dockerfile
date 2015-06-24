@@ -30,7 +30,6 @@ ADD etc /etc
 # mountable directory
 VOLUME ["/data","/config"]
 
-RUN chmod +x /setup/setup.sh && \
-	/setup/setup.sh
+RUN chmod +x /setup/setup.sh
 
 EXPOSE 80 443
