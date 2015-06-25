@@ -12,6 +12,7 @@ RUN apt-get update && \
         php-pear \
         php5-intl \
         php5-json \
+        php5-sqlite \
         php5-apcu && \
     rm -rf /var/lib/apt/lists/* && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
