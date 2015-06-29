@@ -25,14 +25,14 @@ if [[ ! -d /data/db ]]; then
 	echo "=> InfluxDB Admin Password: $ADMIN_PASS"
 
 	pkill influxd
-	
+
 else
     echo "=> Using an existing InfluxDB data volume"
 fi
 
 if [ -n "${HOSTNAME}" ]; then
     if [ "${HOSTNAME}" == "auto" ]; then
-        HOSTNAME=$(hostname')
+        HOSTNAME=$(hostname)
     fi
 
 	/usr/bin/perl -p -i -e "s/^# hostname.*$/hostname = \"${HOSTNAME}\"/g" /config/config.toml
