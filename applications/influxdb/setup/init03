@@ -4,6 +4,29 @@ if [[ ! -d /data/db ]]; then
 
 	mkdir -p "/data/db"
 	mkdir -p  "/data/meta"
+
+	ADMIN_PASS=${ADMIN_PASS:-"$(pwgen -B -s 24 1)"}
+
+	echo "=> Set up InfluxDB Authentication ..."
+    exec /opt/influxdb/influxd -config=/etc/config.toml &
+
+	#wait for the startup of influxdb
+	RET=1
+	while [[ RET -ne 0 ]]; do
+		echo "=> Waiting for InfluxDB ..."
+		sleep 1
+		curl -k http://localhost:8086/ping 2> /dev/null
+		RET=$?
+	done
+
+	/opt/influxdb/influx -host=localhost -execute "CREATE USER docker WITH PASSWORD '${ADMIN_PASS}' WITH ALL PRIVILEGES"
+
+	echo "=> InfluxDB Admin Username: $ADMIN_USER"
+	echo "=> InfluxDB Admin Password: $ADMIN_PASS"
+
+	fg
+	exit 0	
+
 else
     echo "=> Using an existing InfluxDB data volume"
 fi
@@ -16,4 +39,4 @@ if [ -n "${HOSTNAME}" ]; then
 	/usr/bin/perl -p -i -e "s/^# hostname.*$/hostname = \"${HOSTNAME}\"/g" /config/config.toml
 fi
 
-chown -R core:core /data
+chown -R influxdb:influxdb /data

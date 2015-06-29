@@ -15,6 +15,8 @@ RUN chmod +x /setup/setup.sh && chmod +x /run.sh
 # Ports for Admin, API, Raft (clustering only), Protobuf (clustering only)
 EXPOSE 8083 8086 8090 8099
 
+ENV ADMIN_USER=docker 
+
 VOLUME ["/data","/config"]
 
 CMD ["/run.sh"]
