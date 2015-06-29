@@ -8,7 +8,7 @@ if [[ ! -d /data/db ]]; then
 	ADMIN_PASS=${ADMIN_PASS:-"$(pwgen -B -s 24 1)"}
 
 	echo "=> Set up InfluxDB Authentication ..."
-    exec /opt/influxdb/influxd -config=/etc/config.toml &
+    exec /opt/influxdb/influxd -config=/config/config.toml &
 
 	#wait for the startup of influxdb
 	RET=1
