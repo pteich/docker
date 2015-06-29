@@ -3,7 +3,8 @@ if [[ ! -d /data/db ]]; then
 	echo "=> Setup InfluxDB ..."
 
 	mkdir -p "/data/db"
-	mkdir -p  "/data/meta"
+	mkdir -p "/data/meta"
+	mkdir -p "/data/broker"
 
 	ADMIN_PASS=${ADMIN_PASS:-"$(pwgen -B -s 24 1)"}
 
@@ -28,14 +29,6 @@ if [[ ! -d /data/db ]]; then
 
 else
     echo "=> Using an existing InfluxDB data volume"
-fi
-
-if [ -n "${HOSTNAME}" ]; then
-    if [ "${HOSTNAME}" == "auto" ]; then
-        HOSTNAME=$(hostname)
-    fi
-
-	/usr/bin/perl -p -i -e "s/^# hostname.*$/hostname = \"${HOSTNAME}\"/g" /config/config.toml
 fi
 
 chown -R influxdb:influxdb /data

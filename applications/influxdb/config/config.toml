@@ -1,12 +1,12 @@
 [meta]
   dir = "/data/meta"
-# hostname = "influxdb"
-  bind-address = ":8088"
-  retention-autocreate = true
-  election-timeout = "1s"
-  heartbeat-timeout = "1s"
-  leader-lease-timeout = "500ms"
-  commit-timeout = "50ms"
+#  hostname = "localhost"
+#  bind-address = ":8088"
+#  retention-autocreate = true
+#  election-timeout = "1s"
+#  heartbeat-timeout = "1s"
+#  leader-lease-timeout = "500ms"
+#  commit-timeout = "50ms"
 
 [data]
   dir = "/data/db"
@@ -14,6 +14,11 @@
   retention-check-enabled = true
   retention-check-period = "10m0s"
   retention-create-period = "45m0s"
+
+[broker]
+  dir = "/data/broker"
+  enabled = true
+  election-timeout = "0"  
 
 [cluster]
   shard-writer-timeout = "5s"
