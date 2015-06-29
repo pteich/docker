@@ -24,9 +24,8 @@ if [[ ! -d /data/db ]]; then
 	echo "=> InfluxDB Admin Username: $ADMIN_USER"
 	echo "=> InfluxDB Admin Password: $ADMIN_PASS"
 
-	fg
-	exit 0	
-
+	pkill influxd
+	
 else
     echo "=> Using an existing InfluxDB data volume"
 fi
