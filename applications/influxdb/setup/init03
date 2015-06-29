@@ -2,8 +2,8 @@ if [[ ! -d /data/db ]]; then
 	echo "=> Detected an uninitialized InfluxDB data volume"
 	echo "=> Setup InfluxDB ..."
 
-	touch "/data/db"
-	touch "/data/meta"
+	mkdir -p "/data/db"
+	mkdir -p  "/data/meta"
 else
     echo "=> Using an existing InfluxDB data volume"
 fi
@@ -12,7 +12,7 @@ if [ -n "${HOSTNAME}" ]; then
     if [ "${HOSTNAME}" == "auto" ]; then
         HOSTNAME=$(hostname')
     fi
-    
+
 	/usr/bin/perl -p -i -e "s/^# hostname.*$/hostname = \"${HOSTNAME}\"/g" /config/config.toml
 fi
 
