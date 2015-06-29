@@ -1,3 +1,5 @@
+reporting-disabled = false
+
 [meta]
   dir = "/data/meta"
 #  hostname = "localhost"
@@ -68,8 +70,8 @@
   batch-timeout = "0"
 
 [monitoring]
-  enabled = false
-  write-interval = "1m0s"
+  enabled = true
+  write-interval = "24h"
 
 [continuous_queries]
   enabled = true
