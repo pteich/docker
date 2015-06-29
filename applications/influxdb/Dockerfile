@@ -8,7 +8,7 @@ RUN curl -sOL http://influxdb.s3.amazonaws.com/influxdb_0.9.0_amd64.deb && \
 
 ADD setup /setup
 ADD config /config
-#ADD etc /etc
+ADD run.sh /run.sh
 
 RUN chmod +x /setup/setup.sh && chmod +x /run.sh
 
