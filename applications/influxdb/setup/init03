@@ -1,0 +1,11 @@
+if [[ ! -d /data/db ]]; then
+	echo "=> Detected an uninitialized InfluxDB data volume"
+	echo "=> Setup InfluxDB ..."
+
+	touch "/data/db"
+	touch "/data/meta"
+else
+    echo "=> Using an existing InfluxDB data volume"
+fi
+
+chown -R core:core /data

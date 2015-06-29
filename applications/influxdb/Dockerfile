@@ -7,11 +7,16 @@ RUN curl -sOL http://influxdb.s3.amazonaws.com/influxdb_0.9.0_amd64.deb && \
     rm -rf /var/lib/apt/lists/*
 
 ADD setup /setup
+ADD config /config
 #ADD etc /etc
 
-RUN chmod +x /setup/setup.sh && /setup/setup.sh
+RUN chmod +x /setup/setup.sh && chmod +x /run.sh
 
 # Ports for Admin, API, Raft (clustering only), Protobuf (clustering only)
 EXPOSE 8083 8086 8090 8099
 
-VOLUME ["/data"]
+VOLUME ["/data","/config"]
+
+ENTRYPOINT ["/run.sh"]
+
+CMD [""]
