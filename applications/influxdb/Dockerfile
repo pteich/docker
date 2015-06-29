@@ -17,6 +17,4 @@ EXPOSE 8083 8086 8090 8099
 
 VOLUME ["/data","/config"]
 
-ENTRYPOINT ["/run.sh"]
-
-CMD [""]
+CMD ["/run.sh"]
