@@ -11,13 +11,7 @@ ADD setup /setup
 
 RUN chmod +x /setup/setup.sh && /setup/setup.sh
 
-# Admin port
-EXPOSE 8083
-# API port
-EXPOSE 8086
-# Raft port (for clustering only)
-EXPOSE 8090
-# Protobuf port (for clustering only)
-EXPOSE 8099
+# Ports for Admin, API, Raft (clustering only), Protobuf (clustering only)
+EXPOSE 8083 8086 8090 8099
 
 VOLUME ["/data"]
