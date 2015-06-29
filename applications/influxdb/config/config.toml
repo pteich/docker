@@ -1,6 +1,6 @@
 [meta]
   dir = "/data/meta"
-  hostname = "influxdb"
+# hostname = "influxdb"
   bind-address = ":8088"
   retention-autocreate = true
   election-timeout = "1s"
