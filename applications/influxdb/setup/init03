@@ -1,4 +1,4 @@
-if [[ ! -d /data/db ]]; then
+if [[ ! -d /data/meta ]]; then
 	echo "=> Detected an uninitialized InfluxDB data volume"
 	echo "=> Setup InfluxDB ..."
 
