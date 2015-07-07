@@ -1,9 +1,9 @@
 FROM pteich/ubuntu:latest
 MAINTAINER Peter Teich <peter.teich@gmail.com>
 
-RUN curl -sOL http://influxdb.s3.amazonaws.com/influxdb_0.9.0_amd64.deb && \
-    dpkg -i influxdb_0.9.0_amd64.deb && \
-    rm -f influxdb_0.9.0_amd64.deb && \
+RUN curl -sOL https://s3.amazonaws.com/influxdb/influxdb_0.9.1_amd64.deb && \
+    dpkg -i influxdb_0.9.1_amd64.deb && \
+    rm -f influxdb_0.9.1_amd64.deb && \
     rm -rf /var/lib/apt/lists/*
 
 ADD setup /setup
@@ -15,7 +15,7 @@ RUN chmod +x /setup/setup.sh && chmod +x /run.sh
 # Ports for Admin, API, Raft (clustering only), Protobuf (clustering only)
 EXPOSE 8083 8086 8090 8099
 
-ENV ADMIN_USER=docker 
+ENV ADMIN_USER=docker
 
 VOLUME ["/data","/config"]
 
