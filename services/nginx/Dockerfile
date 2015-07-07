@@ -14,7 +14,7 @@ ADD setup /setup
 # mountable directory
 VOLUME ["/data","/config"]
 
-RUN chmod +x /setup/setup.sh && \
+RUN chmod +x /setup/setup.sh; sync && \
 	/setup/setup.sh
 
 EXPOSE 80 443	8000-8100
