@@ -10,7 +10,7 @@ Base image with pre-installed supervisord. Containers that use this base image c
 ##Applications
 
 ###Elasticsearch
-Elasticsearch running on Oracle Java 8 JRE. 
+Elasticsearch running on Oracle Java 8 JRE.
 
 To start Elasticsearch and make both ports public available:
 
@@ -46,9 +46,27 @@ To start Kibana4:
 
 `VERIFY_SSL` default to true
 
+###InfluxDB
 
+Docker Image `pteich/influxdb`
+
+###Chronograf
+
+Docker Image `pteich/chronograf`
+
+##Services
+
+###Apache+PHP
+
+Docker Image `pteich/apache-php`
+
+###MariaDB
+
+Docker Image `pteich/mariadb`
+
+###Nginx
+
+Docker Image `pteich/nginx`
 
 ## Thanks
 This repository is heavily inspired by [maxexcloo/Docker](https://github.com/maxexcloo/Docker)
-
-
