@@ -1,9 +1,9 @@
 FROM pteich/ubuntu:latest
 MAINTAINER Peter Teich <peter.teich@gmail.com>
 
-RUN curl -sOL https://s3.amazonaws.com/influxdb/influxdb_0.9.2_amd64.deb && \
-    dpkg -i influxdb_0.9.2_amd64.deb && \
-    rm -f influxdb_0.9.2_amd64.deb && \
+RUN curl -sOL https://s3.amazonaws.com/influxdb/influxdb_0.9.3_amd64.deb && \
+    dpkg -i influxdb_0.9.3_amd64.deb && \
+    rm -f influxdb_0.9.3_amd64.deb && \
     rm -rf /var/lib/apt/lists/*
 
 ADD setup /setup
