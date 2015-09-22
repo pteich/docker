@@ -1,7 +1,7 @@
 FROM pteich/ubuntu:latest
 MAINTAINER Peter Teich <peter.teich@gmail.com>
 
-ENV KIBANA_VERSION 4.1.1
+ENV KIBANA_VERSION 4.1.2
 RUN curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -  && \
 	apt-get -y install nodejs
 
