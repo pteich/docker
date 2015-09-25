@@ -1,8 +1,9 @@
-if [[ ! -d /data/meta ]]; then
+if [[ ! -d /data/db ]]; then
 	echo "=> Detected an uninitialized InfluxDB data volume"
 	echo "=> Setup InfluxDB ..."
 
 	mkdir -p "/data/db"
+	mkdir -p "/data/wal"
 	mkdir -p "/data/meta"
 	mkdir -p "/data/broker"
 
@@ -29,6 +30,11 @@ if [[ ! -d /data/meta ]]; then
 
 else
     echo "=> Using an existing InfluxDB data volume"
+
+    if [[ ! -d /data/wal ]]; then
+        echo "=> Create missing InfluxDB wal volume (Version >= 0.9.3)"
+        mkdir -p "/data/wal"
+    fi
 fi
 
 chown -R influxdb:influxdb /data
