@@ -37,4 +37,4 @@ else
     fi
 fi
 
-chown -R core:core /data
+chown -R influxdb:influxdb /data
