@@ -10,6 +10,8 @@ ADD setup /setup
 ADD config /config
 ADD run.sh /run.sh
 
+USER core
+
 RUN chmod +x /setup/setup.sh && chmod +x /run.sh
 
 # Ports for Admin, API, Raft (clustering only), Protobuf (clustering only)
