@@ -4,4 +4,4 @@
 
 echo "=> Starting InfluxDB ..."
 
-exec /opt/influxdb/influxd -config=/config/config.toml
+exec sudo -u influxdb /opt/influxdb/influxd -config=/config/config.toml
