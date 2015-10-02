@@ -25,6 +25,4 @@ VOLUME ["/data"]
 RUN chmod +x /setup/setup.sh
 RUN chmod +x /run.sh
 
-ENTRYPOINT ["/run.sh"]
-
-CMD [""]
+CMD ["/run.sh"]
