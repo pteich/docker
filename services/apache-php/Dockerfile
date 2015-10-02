@@ -9,6 +9,7 @@ RUN apt-get update && \
 		php5-mcrypt \
         php5-gd \
         php5-curl \
+        php5-cli \
         php-pear \
         php5-intl \
         php5-json \
