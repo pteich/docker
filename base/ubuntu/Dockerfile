@@ -21,7 +21,7 @@ RUN mkdir /setup /data && \
 ADD setup /setup
 
 # start setup.sh
-RUN chmod +x /setup/setup.sh && \
+RUN chmod +x /setup/setup.sh; sync && \
 	/setup/setup.sh
 
 # default entrypoint
