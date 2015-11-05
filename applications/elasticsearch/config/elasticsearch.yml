@@ -1,4 +1,4 @@
-path.conf: /etc/elasticsearch
+path.conf: /config
 path.data: /data/elasticsearch/data
 path.logs: /data/elasticsearch/log
 path.plugins: /data/elasticsearch/plugins
