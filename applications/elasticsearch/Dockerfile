@@ -13,7 +13,7 @@ RUN \
   apt-get install --no-install-recommends -y oracle-java8-installer elasticsearch && \
   rm -rf /var/lib/apt/lists/* && \
   rm -rf /var/cache/oracle-jdk8-installer && \
-  curl -o /usr/local/bin/gosu -fSL "https://github.com/tianon/gosu/releases/download/1.6/gosu-$(dpkg --print-architecture)" && \
+  curl -o /usr/local/bin/gosu -fSL "https://github.com/tianon/gosu/releases/download/1.7/gosu-$(dpkg --print-architecture)" && \
   chmod +x /usr/local/bin/gosu
 
 ENV JAVA_HOME=/usr/lib/jvm/java-8-oracle ES_HOME=/usr/share/elasticsearch MAX_OPEN_FILES=65535 PATH=/usr/share/elasticsearch/bin:$PATH
