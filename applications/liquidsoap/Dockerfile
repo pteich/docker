@@ -39,12 +39,12 @@ WORKDIR liquidsoap-full
 
 COPY ./PACKAGES ./
 
-RUN ./configure && make
+RUN ./bootstrap && ./configure && make
 
 USER root
 
 RUN make install && rm -rf liquidsoap-full
 
-ENTRYPOINT ["gosu liquidsoap liquidsoap"]
+ENTRYPOINT ["/usr/local/bin/gosu","liquidsoap","/usr/local/bin/liquidsoap"]
 
 CMD ["--help"]
