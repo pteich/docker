@@ -11,7 +11,7 @@ RUN curl -sOL https://s3.amazonaws.com/get.influxdb.org/chronograf/chronograf_${
 # Port for Web Interface
 EXPOSE 10000
 
-VOLUME ["/opt/etc/chronograf.toml"]
+VOLUME ["/opt/chronograf/chronograf.toml"]
 
 ENTRYPOINT ["/opt/chronograf/chronograf"]
-CMD ["-config=/opt/etc/chronograf.toml"]
+CMD ["-config=/opt/chronograf/chronograf.toml"]
