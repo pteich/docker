@@ -1,7 +1,7 @@
 FROM pteich/ubuntu:latest
 MAINTAINER Peter Teich <peter.teich@gmail.com>
 
-ENV CHRONOGRAF_VERSION 0.2.0
+ENV CHRONOGRAF_VERSION 0.3.2
 ENV INFLUXDB_URL http://localhost:8086
 
 RUN curl -sOL https://s3.amazonaws.com/get.influxdb.org/chronograf/chronograf_${CHRONOGRAF_VERSION}_amd64.deb && \
@@ -9,11 +9,10 @@ RUN curl -sOL https://s3.amazonaws.com/get.influxdb.org/chronograf/chronograf_${
     rm -f chronograf_${CHRONOGRAF_VERSION}_amd64.deb && \
     rm -rf /var/lib/apt/lists/*
 
-ADD run.sh /run.sh
-
-RUN chmod +x /run.sh
-
 # Port for Web Interface
 EXPOSE 8088
 
-CMD ["/run.sh"]
+VOLUME ["/opt/etc/chronograf.toml"]
+
+ENTRYPOINT ["/opt/chronograf/chronograf"]
+CMD ["-config=/opt/etc/chronograf.toml"]
