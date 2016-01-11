@@ -36,4 +36,4 @@ RUN chmod +x /run.sh
 
 ENTRYPOINT ["/run.sh"]
 
-CMD ["elasticsearch", "--network.host=_non_loopback_", "--default.path.conf=/config", "--default.path.home=/usr/share/elasticsearch"]
+CMD ["elasticsearch", "-Des.network.host=0.0.0.0", "--default.path.conf=/config", "--default.path.home=/usr/share/elasticsearch"]
