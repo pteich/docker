@@ -1,7 +1,7 @@
 path.conf: /config
 path.data: /data/elasticsearch/data
 path.logs: /data/elasticsearch/log
-path.plugins: /data/elasticsearch/plugins
+path.plugins: /usr/share/elasticsearch/plugins
 path.work: /data/elasticsearch/work
 
 http.jsonp.enable: false

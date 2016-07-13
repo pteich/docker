@@ -34,6 +34,11 @@ VOLUME ["/config","/data"]
 ADD run.sh /run.sh
 RUN chmod +x /run.sh
 
+# Install Plugins
+RUN \
+    /usr/share/elasticsearch/bin/plugin install lmenezes/elasticsearch-kopf/2.0 && \
+    /usr/share/elasticsearch/bin/plugin install mobz/elasticsearch-head
+
 ENTRYPOINT ["/run.sh"]
 
 CMD ["elasticsearch", "-Des.network.host=0.0.0.0", "--default.path.conf=/config", "--default.path.home=/usr/share/elasticsearch"]
